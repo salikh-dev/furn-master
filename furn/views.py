@@ -31,3 +31,6 @@ def arrivals_detail(request, pk):
     }
 
     return render(request, "detalis/arrivals_detalis.html", context)
+
+# ro`yhatdan o`tish qismi
+
