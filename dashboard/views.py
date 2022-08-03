@@ -1,27 +1,44 @@
-from django.views import generic
 from django.shortcuts import render
+from django.views import generic
 
 class Home(generic.TemplateView):
-    template_name = "dashboard/pages/index.html"
+    template_name = "dashboard/pages/home.html"
 
+class Buttons(generic.TemplateView):
+   template_name ="dashboard/includes/buttons.html"
 
-class Btns(generic.TemplateView):
-    template_name = 'dashboard/pages/btns.html'
-    
-class Cards(generic.TemplateView):
-    template_name = "dashboard/pages/card.html"
+def cards(request):
+    return render(request, 'dashboard/includes/cards.html')
 
-class Blank(generic.TemplateView):
-    template_name = "dashboard/pages/blank.html"
+def animation(request):
+    return render(request, 'dashboard/includes/animation.html')
 
-class Colors(generic.TemplateView):
-    template_name = "dashboard/pages/colors.html"
+def colors(request):
+    return render(request, 'dashboard/includes/colors.html')
 
-class Borders(generic.TemplateView):
-    template_name = "dashboard/pages/borders.html"
+def border(request):
+    return render(request, 'dashboard/includes/border.html')
 
-class Animations(generic.TemplateView):
-    template_name = "dashboard/pages/animations.html"
+def other(request):
+    return render(request, 'dashboard/includes/other.html')
 
-class Others(generic.TemplateView):
-    template_name = "dashboard/pages/others.html"
+def dashboard_login(request):
+    return render(request, 'dashboard/registertration/login.html')
+
+def forgot_password(request):
+    return render(request, 'dashboard/includes/forgot-password.html')
+
+def register(request):
+    return render(request, 'dashboard/registertration/register.html')
+
+def charts(request):
+    return render(request, 'dashboard/includes/charts.html')
+
+def tables(request):
+    return render(request, 'dashboard/includes/tables.html')
+
+def page_404(request):
+    return render(request, 'dashboard/includes/404.html')
+
+def blank(request):
+    return render(request, 'dashboard/includes/blank.html')

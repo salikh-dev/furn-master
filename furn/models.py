@@ -22,6 +22,11 @@ class Arrival(models.Model):
     arrivals_title = models.CharField(max_length=200)
     arrivals_price = models.IntegerField(default=10)
     category = models.ForeignKey("Category",blank=True, on_delete=models.CASCADE)
+
+    #asosiy ma`lumotlar uchun
+    arrivals_size  = models.CharField(max_length=30)
+    arrivals_text = models.CharField(max_length=200)
+    
     def __str__(self):
         return self.arrivals_title
 

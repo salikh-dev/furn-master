@@ -1,15 +1,21 @@
 from django.urls import path
-from dashboard.views import  *
+from .views import *
 
-app_name = "app"
+app_name = 'dashboard'
 
 urlpatterns = [
-    path('', Home.as_view(), name="adminHome"),
-    path('btns/', Btns.as_view(), name="adminBtns"),
-    path('cards/', Cards.as_view(), name="adminCards"),
-    path('blank/', Blank.as_view(), name="blank"),
-    path('colors/', Colors.as_view(), name="colors"),
-    path('borders/', Borders.as_view(), name="borders"),
-    path('animations/', Animations.as_view(), name="animations" ), 
-    path('others/', Others.as_view(), name="others")
+    path('', Home.as_view(), name='home'),
+    path('buttons/', Buttons.as_view(), name='buttons'),
+    path('cards/', cards, name='cards'),
+    path('colors/', colors, name='colors'),
+    path('border/', border, name='border'),
+    path('other/', other, name='other'),
+    path('animation/', animation, name='animation'),
+    path('login/', dashboard_login, name='login'),
+    path('password/', forgot_password, name='password'),
+    path('register/', register, name='register'),
+    path('charts/', charts, name='charts'),
+    path('tables/', tables, name='tables'),
+    path('404/', page_404, name='page_404'),
+    path('blank/', blank, name='blank'),
 ]

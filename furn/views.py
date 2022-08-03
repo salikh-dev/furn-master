@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from furn.models import *
-from furn.form import Followers
 
 def home(request):
+    
     category = request.GET.get('category')
     if category == None:
         arrivals = Arrival.objects.all()
@@ -21,3 +21,13 @@ def home(request):
         "categoryes":categires
     }
     return render(request, 'pages/home.html', context)  
+
+
+def arrivals_detail(request, pk):
+    arrivals_detalis = Arrival.objects.get(id=pk)
+
+    context ={
+        "arrivals_detalis":arrivals_detalis
+    }
+
+    return render(request, "detalis/arrivals_detalis.html", context)
