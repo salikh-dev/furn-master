@@ -6,9 +6,34 @@ from dataclasses import fields
 User = get_user_model()
 
 
-class Registration(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ("username")
-        field_classes = {"username":UsernameField}
+# class Registration(UserCreationForm):
+#     class Meta:
+#         model = User
+#         fields = ("username",)
+#         field_classes = {"username":UsernameField}
 
+
+class Registration(forms.ModelForm):
+    first_name = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeolder":"ismingizni kirting"
+        })
+    )
+    last_name = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeolder":"familyangizni kirting"
+        })
+    )
+    email = forms.EmailField(
+        required=True,
+        widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeolder":"emailimgizni kiritng kirting"
+        })
+    )
