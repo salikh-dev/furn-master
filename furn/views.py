@@ -36,9 +36,13 @@ def arrivals_detail(request, pk):
 
 # ro`yhatdan o`tish qismi
 
-class SignUpView(generic.CreateView):
-    template_name = "registration/signup.html"
-    form_class = Registration
+def signup(request):
+    if request.method == "POST":
+        form = Registration(request.POST)
+        if form.is_valid():
+            form.save()
+            return reverse("furn:home")
+    else:
+        form = Registration()        
     
-    def get_success_url(self):
-        return reverse("furn:home")
+    return render(request, 'registration/signup.html', {"form":form})
