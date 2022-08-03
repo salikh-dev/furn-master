@@ -37,3 +37,29 @@ class Registration(forms.ModelForm):
             "placeolder":"emailimgizni kiritng kirting"
         })
     )
+    password1 = forms.CharField(
+        max_length=50,
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                "placeolder": "password",
+                'class': 'form-control',
+                'date-toggle': 'password',
+                'id':'password'
+            }
+        )
+    )
+    password2 = forms.CharField(
+        max_length=50,
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                "placeolder": "password",
+                'class': 'form-control',
+                'date-toggle': 'password',
+                'id':'password'
+            }
+        )
+    )
+
+    
