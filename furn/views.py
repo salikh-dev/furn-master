@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, redirect
 from furn.models import *
 from django.views import generic
 from .form import *
@@ -37,12 +37,12 @@ def arrivals_detail(request, pk):
 # ro`yhatdan o`tish qismi
 
 def signup(request):
+    
+    form = Registration()
     if request.method == "POST":
         form = Registration(request.POST)
         if form.is_valid():
             form.save()
-            return reverse("furn:home")
-    else:
-        form = Registration()        
+            return redirect("/")
     
     return render(request, 'registration/signup.html', {"form":form})
