@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect
-from furn.models import *
+from .models import *
 from django.views import generic
 from .form import *
 

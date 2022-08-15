@@ -8,6 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(), name="login"),
     path('logout/', LogoutView.as_view(), name="logout"),
-    path("", include('furn.urls')),
+    path("", include('furnapp.urls')),
     path("dashboard/", include('dashboard.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

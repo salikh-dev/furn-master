@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'furn',
+    'furnapp',
     'dashboard'
 ]
 
@@ -119,4 +119,4 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'furn.MyUser'
+AUTH_USER_MODEL = 'furnapp.MyUser'

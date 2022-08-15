@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth import get_user_model
-
+from furnapp.models import *
 User = get_user_model()
 
 
 
 def home(request):
     users = User.objects.count()
+    products = Product.objects.count()
 
     context = {
-        "users":users
+        "users":users,
+        "products":products
     }
     return render(request, 'dashboard/pages/home.html', context)
 
