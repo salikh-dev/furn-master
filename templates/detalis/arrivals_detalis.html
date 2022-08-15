@@ -2,22 +2,21 @@
 {% block title %} Detalis {% endblock title %}
 {% block content %}
 
+
 <section id="new-arrivals" class="new-arrivals">
     <div class="container">
         <div class="wrapper-card">
             <div class="product-img">
-                <img src="http://bit.ly/2tMBBTd" height="420" width="327">
+                <img src="{{ arrivals_detalis.arrivals_img.url }}" height="420" width="327">
             </div>
             <div class="product-info">
                 <div class="product-text">
-                    <h1>Harvest Vase</h1>
-                    <h2>by studio and friends</h2>
-                    <p>Harvest Vases are a reinterpretation<br> of peeled fruits and vegetables as<br> functional
-                        objects. The surfaces<br> appear to be sliced and pulled aside,<br> allowing room for growth.
-                    </p>
+                    <h1>{{ arrivals_detalis.arrivals_title }}</h1>
+                    <div id="text">{{ arrivals_detalis.arrivals_text }}</div>
+                    <p >Size: {{ arrivals_detalis.arrivals_size }}</p>
                 </div>
                 <div class="product-price-btn">
-                    <p><span>78</span>$</p>
+                    <p id="price">${{ arrivals_detalis.arrivals_price }}</p>
                     <button type="button">buy now</button>
                 </div>
             </div>
