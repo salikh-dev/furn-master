@@ -29,9 +29,11 @@
                     <form class="w-100" method="post">
                       {% csrf_token %}
                       <div class="form-outline mb-4 ">
-                        {{ form.username }}
+                        {{ form.first_name }}
                       </div>
-
+                      <div class="form-outline mb-4 ">
+                        {{ form.last_name }}
+                      </div>
                       <div class="form-outline mb-4">
                         {{ form.email }}
                       </div>

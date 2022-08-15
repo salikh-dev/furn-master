@@ -1,8 +1,18 @@
 from django.shortcuts import render
 from django.views import generic
+from django.contrib.auth import get_user_model
 
-class Home(generic.TemplateView):
-    template_name = "dashboard/pages/home.html"
+User = get_user_model()
+
+
+
+def home(request):
+    users = User.objects.count()
+
+    context = {
+        "users":users
+    }
+    return render(request, 'dashboard/pages/home.html', context)
 
 class Buttons(generic.TemplateView):
    template_name ="dashboard/includes/buttons.html"
@@ -42,3 +52,5 @@ def page_404(request):
 
 def blank(request):
     return render(request, 'dashboard/includes/blank.html')
+
+
