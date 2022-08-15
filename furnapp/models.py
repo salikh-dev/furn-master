@@ -1,7 +1,10 @@
+from importlib.util import module_for_loader
+from statistics import mode
 from django.db import models
 from  django.contrib.auth.models import AbstractUser
 
 class MyUser(AbstractUser):
+    username = models.CharField(max_length=32, null=True, blank=True)
     email = models.EmailField(unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -52,11 +55,7 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-class Subscribe(models.Model):
-    email = models.EmailField()
 
-    def __str__(self):
-        return self.email
 
  
 class Category(models.Model):
