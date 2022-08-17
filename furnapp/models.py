@@ -13,7 +13,7 @@ class Profile(models.Model):
     class Meta:
         verbose_name = "My Profile"
         verbose_name_plural = "Profile"
-    user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
+    custom_user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
   
     image = models.ImageField(default="arrivals5.png", upload_to="profile")
 
