@@ -5,5 +5,5 @@ class FurnappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'furnapp'
 
-def ready(self):
-    import furnapp.signal
+    def ready(self):
+        import furnapp.signal
