@@ -10,10 +10,12 @@ def home(request):
     users = User.objects.count()
     products = Product.objects.count()
     blog =  Blog.objects.count()
+    arravial = Arrival.objects.count()
     context = {
         "users":users,
         "products":products,
-        "blogs":blog
+        "blogs":blog,
+        "arravials":arravial
     }
     return render(request, 'dashboard/pages/home.html', context)
 
