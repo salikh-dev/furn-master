@@ -1,8 +1,5 @@
 from django.db import models
 from  django.contrib.auth.models import AbstractUser
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
 
 class MyUser(AbstractUser):
     username = None
@@ -16,12 +13,11 @@ class Profile(models.Model):
     class Meta:
         verbose_name = "My Profile"
         verbose_name_plural = "Profile"
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    email = models.EmailField()
+    custum_user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
+  
     image = models.ImageField(default="arrivals5.png", upload_to="profile")
-
     def __str__(self):
-        return  self
+        return self.custum_user
 
 
 class Carousel(models.Model):
