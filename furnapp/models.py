@@ -1,7 +1,8 @@
-from importlib.util import module_for_loader
-from statistics import mode
 from django.db import models
 from  django.contrib.auth.models import AbstractUser
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class MyUser(AbstractUser):
     username = None
@@ -10,6 +11,18 @@ class MyUser(AbstractUser):
     REQUIRED_FIELDS = []
     is_organiser = models.BooleanField(default=False)
     is_agent = models.BooleanField(default=False)
+
+class Profile(models.Model):
+    class Meta:
+        verbose_name = "My Profile"
+        verbose_name_plural = "Profile"
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    email = models.EmailField()
+    image = models.ImageField(default="arrivals5.png", upload_to="profile")
+
+    def __str__(self):
+        return  self
+
 
 class Carousel(models.Model):
 
