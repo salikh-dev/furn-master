@@ -115,7 +115,10 @@
                             <li class="scroll"><a href="#newsletter">contact</a></li>
                             {% if not request.user.is_authenticated %}
                             <li><a href="{% url 'furn:signup' %}">Signup</a></li>
-                            <li><a href="{% url 'furn:' %}">Signup</a></li>
+                            <li><a href="{% url 'furn:login' %}">login</a></li>
+                            {% endif %}
+                            {% if  request.user.is_authenticated %}
+                            
                             {% endif %}
                             {% if request.user.is_organiser %}
                             <li ><a href="/dashboard/">dashboard</a></li>

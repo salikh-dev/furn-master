@@ -9,10 +9,11 @@ User = get_user_model()
 def home(request):
     users = User.objects.count()
     products = Product.objects.count()
-
+    blog =  Blog.objects.count()
     context = {
         "users":users,
-        "products":products
+        "products":products,
+        "blogs":blog
     }
     return render(request, 'dashboard/pages/home.html', context)
 
