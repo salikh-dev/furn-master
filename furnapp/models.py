@@ -13,11 +13,10 @@ class Profile(models.Model):
     class Meta:
         verbose_name = "My Profile"
         verbose_name_plural = "Profile"
-    custum_user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
   
     image = models.ImageField(default="arrivals5.png", upload_to="profile")
-    def __str__(self):
-        return self.custum_user
+
 
 
 class Carousel(models.Model):

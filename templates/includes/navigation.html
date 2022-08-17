@@ -118,7 +118,7 @@
                             <li><a href="{% url 'furn:login' %}">login</a></li>
                             {% endif %}
                             {% if  request.user.is_authenticated %}
-                            
+                            <li><a href="{% url 'furn:logout' %}">logout</a></li>
                             {% endif %}
                             {% if request.user.is_organiser %}
                             <li ><a href="/dashboard/">dashboard</a></li>
