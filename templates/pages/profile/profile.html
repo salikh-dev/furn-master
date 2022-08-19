@@ -23,18 +23,13 @@
         <ul>
             <li>
                 <a href="{% url 'furn:home' %}">
-                    <i class="fa fa-home fa-2x"></i>
+                    <i class="fa fa-home fa-2x" style="background-color: transparent !important;"></i>
                 </a>
             </li>
+
             <li>
-                <a href="#notification">
-                    <span class="icon-count">59</span>
-                    <i class="fa fa-bell fa-2x"></i>
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'furn:logout' %}">
-                    <i class="fa fa-sign-out-alt fa-2x"></i>
+                <a  href="{% url 'furn:logout' %}">
+                    <i class="fa fa-sign-out-alt fa-2x" style="background-color: transparent !important;"></i>
                 </a>
             </li>
         </ul>
@@ -51,7 +46,7 @@
                 {{ user.first_name }}
             </div>
             <div class="job">
-                Web Developer
+                {{ user.profile.bio }}
             </div>
         </div>
 
@@ -76,36 +71,57 @@
                 <i class="fa fa-pen fa-xs edit"></i>
                 <table>
                     <tbody>
+                        {% if user.first_name %}
                         <tr>
                             <td>Name</td>
                             <td>:</td>
                             <td>{{ user.first_name }}</td>
                         </tr>
+                        {% endif %}
+
+                        {% if user.last_name %}
+                        <tr>
+                            <td>Last name</td>
+                            <td>:</td>
+                            <td>{{ user.last_name }}</td>
+                        </tr>
+                        {% endif %}
+
+                        {% if user.email %}
                         <tr>
                             <td>Email</td>
                             <td>:</td>
                             <td>{{ user.email }}</td>
                         </tr>
+                        {% endif %}
+                        {% if user.profile.address %}
                         <tr>
                             <td>Address</td>
                             <td>:</td>
                             <td>{{ user.profile.address }}</td>
                         </tr>
+                        {% endif %}
+                        {% if user.profile.hobbies %}
                         <tr>
                             <td>Hobbies</td>
                             <td>:</td>
                             <td>{{ user.profile.hobbies }}</td>
                         </tr>
+                        {% endif %}
+                        {% if user.profile.job %}
                         <tr>
                             <td>Job</td>
                             <td>:</td>
                             <td>{{ user.profile.job }}</td>
                         </tr>
+                        {% endif %}
+                        {% if user.profile.skill %}
                         <tr>
                             <td>Skill</td>
                             <td>:</td>
                             <td>{{ user.profile.skill }}</td>
                         </tr>
+                        {% endif %}
                     </tbody>
                 </table>
             </div>
@@ -117,38 +133,38 @@
                 <i class="fa fa-pen fa-xs edit"></i>
                 <div class="social-media">
                     {% if user.profile.facebook %}
-                    <a href="{{ user.profile.facebook }}" class="fa-stack fa-sm">
+                    <a href="https://fb.com/{{ user.profile.facebook }}" target="_blank" class="fa-stack fa-sm">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
                     </a>
                     {% endif %}
                     {% if user.profile.telegram %}
-                    <a href="{{ user.profile.telegram }}" class="fa-stack fa-sm">
+                    <a href="https://t.me/{{ user.profile.telegram }}" target="_blank" class="fa-stack fa-sm">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
                     </a>
                     {% endif %}
                     
                     {% if user.profile.instagram %}
-                    <a href="{{ user.profile.instagram }}" class="fa-stack fa-sm">
+                    <a href="https://instagram.com/{{ user.profile.instagram }}" target="_blank" class="fa-stack fa-sm">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
                     </a>
                     {% endif %}
                     {% if user.profile.twitter %}
-                    <a href="{{ user.profile.twitter }}" class="fa-stack fa-sm">
+                    <a href="https://twitter.com/@{{ user.profile.twitter }}" target="_blank" class="fa-stack fa-sm">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
                     </a>
                     {% endif %}
                     {% if user.profile.snapchat %}
-                    <a href="{{ user.profile.snapchat }}" class="fa-stack fa-sm">
+                    <a href="https://snapchat.com/{{ user.profile.snapchat }}" target="_blank" class="fa-stack fa-sm">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
                     </a>
                     {% endif %}
                     {% if user.profile.github %}
-                    <a href="{{ user.profile.github }}" class="fa-stack fa-sm">
+                    <a href="https://github.com/{{ user.profile.github }}" target="_blank" class="fa-stack fa-sm">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
                     </a>

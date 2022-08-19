@@ -19,17 +19,17 @@ class Profile(models.Model):
     image = models.ImageField(default="arrivals5.png", upload_to="profile")
     bio = models.CharField(max_length=100, default="bio", blank=True)
     card_number = models.CharField(max_length=16, blank=True)
+    address = models.CharField(max_length=200, blank=True)
     telephone = models.CharField(max_length=200, blank=True)
+    job = models.CharField(max_length=200, blank=True)
+    skill = models.TextField(max_length=700, blank=True)
+    hobbies = models.TextField(max_length=700, blank=True)
     facebook = models.CharField(max_length=200, blank=True)
     telegram = models.CharField(max_length=200, blank=True)
     instagram = models.CharField(max_length=200, blank=True)
     twitter = models.CharField(max_length=200, blank=True)
     snapchat = models.CharField(max_length=200, blank=True)
     github = models.CharField(max_length=200, blank=True)
-    address = models.CharField(max_length=200, blank=True)
-    job = models.CharField(max_length=200, blank=True)
-    hobbies = models.TextField(max_length=700, blank=True)
-    skill = models.TextField(max_length=700, blank=True)
 
 
 
