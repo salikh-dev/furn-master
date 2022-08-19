@@ -1,8 +1,8 @@
+from multiprocessing import context
 from django.shortcuts import render, reverse, redirect
 from .models import *
 from django.views import generic
 from .form import *
-from django.urls import reverse_lazy
 
 def home(request):
     
@@ -51,9 +51,14 @@ def signup(request):
 class Profileview(generic.TemplateView):
     template_name = "pages/profile/profile.html"
 
-class EditProfileView(generic.UpdateView):
-    form_class = EditProfileForm
-    template_name = "pages/profile/edit_profile.html"
-    success_url = reverse_lazy('furn:profile')
-    def get_object(self):
-        return self.request.user
+def edit_profile_view(request):
+    form1 = EditProfileForm()
+    if request.method == "POST":
+        form1 = EditProfileForm(request.POST)
+        if form1.is_valid():
+            form1.save()
+            return redirect("app:succses")
+    context ={
+        "form1":form1
+    }
+    return render(request, 'pages/profile/edit_profile.html', context)

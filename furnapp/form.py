@@ -14,5 +14,5 @@ class Registration(UserCreationForm):
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
-        model = Profile
-        fields = ['__all__']
+        model = MyUser
+        fields = ['first_name', 'last_name', 'email']

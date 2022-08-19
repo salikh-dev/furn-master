@@ -31,13 +31,12 @@
         <h2>Edit Client Profile</h2>
         
         <form id="myForm">
-      
+            {% csrf_token %}
           <div class="form-row">
       
             <div class="form-group col-md-6">
       
-              <label for="firstName">First Name</label>
-              <input name="firstName" type="text" class="form-control" id="firstName" placeholder="First name">
+              {{ form.first_name }}
       
             </div><!-- /form-group -->
       
