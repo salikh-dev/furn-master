@@ -18,7 +18,7 @@ class Profile(models.Model):
     custom_user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
     image = models.ImageField(default="arrivals5.png", upload_to="profile")
     bio = models.CharField(max_length=100, default="bio", blank=True)
-    card_number = models.CharField(max_length=16, blank=True)
+    card_number = models.CharField(max_length=19, blank=True)
     address = models.CharField(max_length=200, blank=True)
     telephone = models.CharField(max_length=200, blank=True)
     job = models.CharField(max_length=200, blank=True)

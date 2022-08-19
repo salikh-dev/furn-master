@@ -71,6 +71,20 @@
                 <i class="fa fa-pen fa-xs edit"></i>
                 <table>
                     <tbody>
+                        {% if user.profile.card_number %}
+                        <tr>
+                            <td>Card Number</td>
+                            <td>:</td>
+                            <a href="card:{{user.profile.card_number}}"><td>{{ user.profile.card_number }}</td></a>
+                        </tr>
+                        {% endif %}
+                        {% if user.profile.telephone %}
+                        <tr>
+                            <td>Telephone</td>
+                            <td>:</td>
+                            <td>{{ user.profile.telephone }}</td>
+                        </tr>
+                        {% endif %}
                         {% if user.first_name %}
                         <tr>
                             <td>Name</td>
@@ -122,6 +136,7 @@
                             <td>{{ user.profile.skill }}</td>
                         </tr>
                         {% endif %}
+                        
                     </tbody>
                 </table>
             </div>
@@ -173,32 +188,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="active">
-        <div class="floating">
-            <div class="thickness"></div>
-            <div class="thickness"></div>
-            <div class="thickness"></div>
-            <div class="card_body">
-              <div class="paypal_center svg"></div>
-              <div class="logo svg"></div>
-              <div class="paywave svg"></div>
-              <div class="chips svg"></div>
-              <div class="card_no text">
-                1234-5678-9012-3456
-              </div>
-              <div class="valid text">
-                VALID <br> THUR
-              </div>
-              <div class="valid_date text">
-                12/20
-              </div>
-              <div class="holder text">JOHN DOE</div>
-              <div class="mastercard_icon svg"></div>
-        
-            </div>
-        
-          </div>
     </div>
     <!-- End -->
 </body>
