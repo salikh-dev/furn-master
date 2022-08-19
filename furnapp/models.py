@@ -28,6 +28,7 @@ class Profile(models.Model):
     github = models.CharField(max_length=200)
 
 
+
 class Carousel(models.Model):
 
     img = models.ImageField()
