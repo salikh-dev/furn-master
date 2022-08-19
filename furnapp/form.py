@@ -16,7 +16,7 @@ class EditProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name']
-        # widgets = {
-        #     'first_name':forms.TextInput(attrs={"class": "form-control","placeholder":"First Name", "id":'firstname', "value":"user"}),
-        #     'last_name':forms.TextInput(attrs={"class": "form-control", "placeholder":"Last Name", "id":"lastname"})
-        # }
+        widgets = {
+            'first_name':forms.TextInput(attrs={"class": "form-control","placeholder":"First Name", "id":'firstname', "value":"user"}),
+            'last_name':forms.TextInput(attrs={"class": "form-control", "placeholder":"Last Name", "id":"lastname"})
+        }

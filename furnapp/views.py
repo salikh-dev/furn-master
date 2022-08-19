@@ -52,22 +52,22 @@ def signup(request):
 class Profileview(generic.TemplateView):
     template_name = "pages/profile/profile.html"
 
-def edit_profile_view(request):
-    if request.method == "POST":
-        form = EditProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return reverse("furn:profile")
-    else:
-        form = EditProfileForm()
-    context ={
-        "form":form
-    }
-    return render(request, 'pages/profile/edit_profile.html', context)
+# def edit_profile_view(request):
+#     if request.method == "POST":
+#         form = EditProfileForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return reverse("furn:profile")
+#     else:
+#         form = EditProfileForm()
+#     context ={
+#         "form":form
+#     }
+#     return render(request, 'pages/profile/edit_profile.html', context)
 
-# class EditProfileView(generic.UpdateView):
-#     form_class = EditProfileForm
-#     template_name = "pages/profile/edit_profile.html"
-#     success_url = reverse_lazy('furn:profile')
-#     def get_object(self):
-#         return self.request.user
+class EditProfileView(generic.UpdateView):
+    form_class = EditProfileForm
+    template_name = "pages/profile/edit_profile.html"
+    success_url = reverse_lazy('furn:profile')
+    def get_object(self):
+        return self.request.user
