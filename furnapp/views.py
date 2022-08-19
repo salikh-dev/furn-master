@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse, redirect
 from .models import *
 from django.views import generic
 from .form import *
+from django.urls import reverse_lazy
 
 def home(request):
     
@@ -48,4 +49,11 @@ def signup(request):
     return render(request, 'registration/signup.html', {"form":form})
 
 class Profileview(generic.TemplateView):
-    template_name = "pages/profile.html"
+    template_name = "pages/profile/profile.html"
+
+class EditProfileView(generic.UpdateView):
+    form_class = EditProfileForm
+    template_name = "pages/profile/edit_profile.html"
+    success_url = reverse_lazy('furn:profile')
+    def get_object(self):
+        return self.request.user
