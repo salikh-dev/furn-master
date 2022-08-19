@@ -7,24 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit profile</title>
     <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-
-        <div class="header__wrapper d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom shadow-sm">
-      
-          <h3 class="my-0 mr-md-auto font-weight-normal">Best Goods Inc.</h3>
-      
-          <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="#">Home</a>
-            <a class="p-2 text-dark" href="#">About</a>
-            <a class="p-2 text-dark" href="#">Products</a>
-            <a class="p-2 text-dark" href="#">Account</a>
-          </nav>
-      
-        </div><!-- /flex-column -->
-      
-      </header>
+   
       
       <div class="container form__wrapper"> 
         
@@ -36,7 +22,7 @@
       
             <div class="form-group col-md-6">
       
-              {{ form.first_name }}
+              {{ form1.first_name }}
       
             </div><!-- /form-group -->
       
@@ -115,8 +101,9 @@
       
           <div class="form__btns">
       
-            <button id="cancel" class="btn btn-outline-primary">Cancel</button>
-            <button id="save" class="btn btn-primary">Save</button>
+            <a id="cancel" href="{% url 'furn:profile' %}" class="btn btn-outline-primary">Cancel</a>
+            <button type="submit" class="btn btn-primary">Save</button>
+            
       
           </div><!-- /form__btns -->
       

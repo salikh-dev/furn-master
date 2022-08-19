@@ -58,8 +58,13 @@ body {
   }
   
   .form__btns button {
-    min-width: 95px;
-    margin: 24px 15px 0;
+    padding: 6px 40px;
+    text-transform: capitalize;
+    margin-top: 0px;
+  }
+  .form__btns a {
+    text-transform: capitalize;
+    padding: 6px 40px;
   }
   
   .form-control {
@@ -100,12 +105,3 @@ body {
   }
   
   /* Responsive */
-  @media (min-width: 576px) { 
-  
-    .form__btns button {
-      min-width: 125px;
-      margin: 24px 20px 0;
-    }
-    
-  }
-  
