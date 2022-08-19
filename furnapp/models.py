@@ -1,3 +1,5 @@
+from importlib.util import set_loader
+from pyexpat import model
 from django.db import models
 from  django.contrib.auth.models import AbstractUser
 
@@ -16,7 +18,14 @@ class Profile(models.Model):
     custom_user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
     image = models.ImageField(default="arrivals5.png", upload_to="profile")
     bio = models.CharField(max_length=100, default="bio", blank=True)
-
+    card_number = models.CharField(max_length=16)
+    telephone = models.CharField(max_length=200)
+    facebook = models.CharField(max_length=200)
+    telegram = models.CharField(max_length=200)
+    instagram = models.CharField(max_length=200)
+    twitter = models.CharField(max_length=200)
+    snapchat = models.CharField(max_length=200)
+    github = models.CharField(max_length=200)
 
 
 class Carousel(models.Model):
