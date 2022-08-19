@@ -46,3 +46,6 @@ def signup(request):
             return redirect("/")
     
     return render(request, 'registration/signup.html', {"form":form})
+
+class Profileview(generic.TemplateView):
+    template_name = "pages/profile.html"
