@@ -169,32 +169,10 @@ body {
     margin: 0 10px;
 }
 
-.fa-facebook:hover {
-    color: #4267b3 !important;
+a{
+    border-radius: 50%;
 }
 
-.fa-twitter:hover {
-    color: #1da1f2 !important;
+a i:last-child{
+    background-color: #000;
 }
-
-.fa-instagram:hover {
-    color: #ce2b94 !important;
-}
-
-.fa-invision:hover {
-    color: #f83263 !important;
-}
-
-.fa-github:hover {
-    color: #161414 !important;
-}
-
-.fa-whatsapp:hover {
-    color: #25d366 !important;
-}
-
-.fa-snapchat:hover {
-    color: #fffb01 !important;
-}
-
-/* End */
