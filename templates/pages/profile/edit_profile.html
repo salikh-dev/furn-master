@@ -17,7 +17,7 @@
     
     <h2>Edit Client Profile</h2>
     
-    <form id="myForm" method="post">
+    <form id="myForm" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="form-row">
   
@@ -39,6 +39,7 @@
       <div class="form-group col-md-6">
         <label for="email">Email address</label>
         {{ form.email }}
+        {{ profile_form }}
       </div><!-- /form-group -->
       <div class="form__btns">
         <a class="btn btn-outline-primary" href="{% url 'furn:profile' %}">cancel</a>

@@ -21,3 +21,8 @@ class EditProfileForm(UserChangeForm):
             'last_name':forms.TextInput(attrs={"class": "form-control", "placeholder":"Last Name", "id":"lastname"}),
             'email':forms.EmailInput(attrs={"class":'form-control w-75', "placeholder":"Email", "id":"email"})
         }
+
+class UserProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image', 'bio', 'card_number', 'address', 'telephone', 'job', 'skill', 'hobbies', 'facebook', 'telegram', 'instagram', 'twitter', 'snapchat', 'github']

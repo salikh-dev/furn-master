@@ -11,5 +11,5 @@ urlpatterns = [
     path("<int:pk>/detalis/", arrivals_detail, name="arrivals_detal"),
     path("signup/", signup, name="signup"),
     path('profile/', Profileview.as_view(), name="profile"),
-    path('edit_profile/', EditProfileView.as_view(), name="edit")
+    path('<int:pk>/update/', edit_profile_view, name="edit")
 ]

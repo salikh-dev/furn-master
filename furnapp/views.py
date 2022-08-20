@@ -1,3 +1,4 @@
+from cgi import print_form
 from multiprocessing import context
 from django.shortcuts import render, reverse, redirect
 from .models import *
@@ -52,22 +53,26 @@ def signup(request):
 class Profileview(generic.TemplateView):
     template_name = "pages/profile/profile.html"
 
-# def edit_profile_view(request):
-#     if request.method == "POST":
-#         form = EditProfileForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return reverse("furn:profile")
-#     else:
-#         form = EditProfileForm()
-#     context ={
-#         "form":form
-#     }
-#     return render(request, 'pages/profile/edit_profile.html', context)
+def edit_profile_view(request, pk):
+    if request.method == "POST":
+        form = EditProfileForm(request.POST, instance=request.user)
+        profile_form = UserProfileEditForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid() and profile_form.is_valid():
+            form.save()
+            profile_form.save()
+            return reverse("furn:profile")
+    else:
+        form = EditProfileForm(instance=request.user)
+        profile_form = UserProfileEditForm(instance=request.user)
+    context ={
+        "form":form,
+        "profile_form": profile_form
+    }
+    return render(request, 'pages/profile/edit_profile.html', context)
 
-class EditProfileView(generic.UpdateView):
-    form_class = EditProfileForm
-    template_name = "pages/profile/edit_profile.html"
-    success_url = reverse_lazy('furn:profile')
-    def get_object(self):
-        return self.request.user
+# class EditProfileView(generic.UpdateView):
+#     form_class = EditProfileForm
+#     template_name = "pages/profile/edit_profile.html"
+#     success_url = reverse_lazy('furn:profile')
+#     def get_object(self):
+#         return self.request.user
