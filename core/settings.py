@@ -22,7 +22,7 @@ SECRET_KEY = 'django-insecure-fa=ycow=)c2s#3wib1ferjpq2694+91oujijw5xxvc@*$-n@5y
 
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['furn-master.herokuapp.com']
 
 
 # Application definition
