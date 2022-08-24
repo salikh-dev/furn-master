@@ -39,123 +39,127 @@
   <!-- End -->
 
   <!-- Sidenav -->
-  <div class="sidenav">
-    <div class="profile">
-      <img src="{{ user.profile_form.image.url }}" alt="" width="100" height="100">
-    </div>
-
-    <div class="sidenav-url">
-
-    </div>
-
-  </div>
-  <!-- End -->
-
-  <!-- Main -->
-  <div class="main">
-    <h2>IDENTITY</h2>
-    <div class="card">
-      <div class="card-body">
-        <i class="fa fa-pen fa-xs edit"></i>
-        <table>
-          <tbody>
-
-            <tr>
-              <td>Name</td>
-              <td>:</td>
-              <td>{{ user_form.first_name }}</td>
-            </tr>
-            <tr>
-              <td>Last name</td>
-              <td>:</td>
-              <td>{{ user_form.last_name }}</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>:</td>
-              <td>{{ user_form.email }}</td>
-            </tr>
-            <tr>
-              <td>Card Number</td>
-              <td>:</td>
-              <td>{{ user.profile.card_number }}</td>
-            </tr>
-            <tr>
-              <td>Bio</td>
-              <td>:</td>
-              <td>{{ user.profile.bio }}</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>:</td>
-              <td>{{ user.profile.telephone }}</td>
-            </tr>
-            <tr>
-              <td>Address</td>
-              <td>:</td>
-              <td>{{ user.profile.address }}</td>
-            </tr>
-
-            <tr>
-              <td>Hobbies</td>
-              <td>:</td>
-              <td>{{ user.profile.hobbies }}</td>
-            </tr>
-
-
-            <tr>
-              <td>Job</td>
-              <td>:</td>
-              <td>{{ user.profile.job }}</td>
-            </tr>
-
-
-            <tr>
-              <td>Skill</td>
-              <td>:</td>
-              <td>{{ user.profile.skill }}</td>
-            </tr>
-
-
-          </tbody>
-        </table>
+  <form method="post">
+    {% csrf_token %}
+    <div class="sidenav">
+      <div class="profile">
+        <img src="{{ user.profile.image.url }}" alt="{{ user.email }}.png" width="100" height="100">
       </div>
-    </div>
 
-    <h2>SOCIAL MEDIA</h2>
-    <div class="card">
-      <div class="card-body">
-        <i class="fa fa-pen fa-xs edit"></i>
-        <div class="social-media">
-          <a href="https://fb.com/{{ user.profile.facebook }}" target="_blank" class="fa-stack fa-sm">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
-          </a>
-          <a href="https://t.me/{{ user.profile.telegram }}" target="_blank" class="fa-stack fa-sm">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
-          </a>
-          <a href="https://instagram.com/{{ user.profile.instagram }}" target="_blank" class="fa-stack fa-sm">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-          </a>
-          <a href="https://twitter.com/@{{ user.profile.twitter }}" target="_blank" class="fa-stack fa-sm">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-          </a>
-          <a href="https://snapchat.com/{{ user.profile.snapchat }}" target="_blank" class="fa-stack fa-sm">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
-          </a>
-          <a href="https://github.com/{{ user.profile.github }}" target="_blank" class="fa-stack fa-sm">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-          </a>
+      <div class="sidenav-url">
+
+      </div>
+
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+      <h2>IDENTITY</h2>
+      <div class="card">
+        <div class="card-body">
+          <i class="fa fa-pen fa-xs edit"></i>
+          <table>
+            <tbody>
+
+              <tr>
+                <td>Name</td>
+                <td>:</td>
+                <td>{{ user_form.first_name }}</td>
+              </tr>
+              <tr>
+                <td>Last name</td>
+                <td>:</td>
+                <td>{{ user_form.last_name }}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td>{{ user_form.email }}</td>
+              </tr>
+              <tr>
+                <td>Card Number</td>
+                <td>:</td>
+                <td>{{ user.profile.card_number }}</td>
+              </tr>
+              <tr>
+                <td>Bio</td>
+                <td>:</td>
+                <td>{{ user.profile.bio }}</td>
+              </tr>
+              <tr>
+                <td>Telephone</td>
+                <td>:</td>
+                <td>{{ user.profile.telephone }}</td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>:</td>
+                <td>{{ user.profile.address }}</td>
+              </tr>
+
+              <tr>
+                <td>Hobbies</td>
+                <td>:</td>
+                <td>{{ user.profile.hobbies }}</td>
+              </tr>
+
+
+              <tr>
+                <td>Job</td>
+                <td>:</td>
+                <td>{{ user.profile.job }}</td>
+              </tr>
+
+
+              <tr>
+                <td>Skill</td>
+                <td>:</td>
+                <td>{{ user.profile.skill }}</td>
+              </tr>
+
+
+            </tbody>
+          </table>
         </div>
       </div>
+
+      <h2>SOCIAL MEDIA</h2>
+      <div class="card">
+        <div class="card-body">
+          <i class="fa fa-pen fa-xs edit"></i>
+          <div class="social-media">
+            <a href="https://fb.com/{{ user.profile.facebook }}" target="_blank" class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+            </a>
+            <a href="https://t.me/{{ user.profile.telegram }}" target="_blank" class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
+            </a>
+            <a href="https://instagram.com/{{ user.profile.instagram }}" target="_blank" class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+            </a>
+            <a href="https://twitter.com/@{{ user.profile.twitter }}" target="_blank" class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </a>
+            <a href="https://snapchat.com/{{ user.profile.snapchat }}" target="_blank" class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
+            </a>
+            <a href="https://github.com/{{ user.profile.github }}" target="_blank" class="fa-stack fa-sm">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {{ form.errors }}
+      <button type="submit">Save Changes</button>
     </div>
-    <button type="submit">Save</button>
-  </div>
+  </form>
   <!-- End -->
 </body>
 
