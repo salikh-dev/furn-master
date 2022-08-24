@@ -61,6 +61,10 @@ class UpdateProfileForm(forms.ModelForm):
             attrs={'class':'form-control'}
         )
     )
+    job = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
     facebook = forms.CharField(widget=forms.TextInput(
             attrs={'class':'form-control'}
         )
@@ -87,7 +91,7 @@ class UpdateProfileForm(forms.ModelForm):
     )
     class Meta:
         model = Profile
-        fields = ['image', 'bio', 'card_number', 'address', 'telephone', 'telephone', 'skill', 'hobbies', 'facebook', 'telegram', 'instagram', 'twitter', 'snapchat', 'github']
+        fields = ['image', 'bio', 'card_number', 'address', 'telephone', 'telephone', 'skill', 'hobbies', 'job', 'facebook', 'telegram', 'instagram', 'twitter', 'snapchat', 'github']
         # fields = '__all__'
 
 
