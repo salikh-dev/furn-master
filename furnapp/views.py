@@ -57,14 +57,14 @@ class Profileview(generic.TemplateView):
 def edit_profile_view(request, pk):
     if request.method == "POST":
         form = EditProfileForm(request.POST, instance=request.user)
-        profile_form = UserProfileEditForm(request.POST, request.FILES, instance=request.user)
+        profile_form = UpdateprofileForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid() and profile_form.is_valid():
             form.save()
             profile_form.save()
             return reverse("furn:profile")
     else:
         form = EditProfileForm(instance=request.user)
-        profile_form = UserProfileEditForm(instance=request.user)
+        profile_form = UpdateprofileForm(instance=request.user)
     context ={
         "form":form,
         "profile_form": profile_form
