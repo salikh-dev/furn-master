@@ -22,7 +22,7 @@ class Registration(UserCreationForm):
 #             'email':forms.EmailInput(attrs={"class":'form-control w-75', "placeholder":"Email", "id":"email"})
 #         }
 
-class EditProfileForm(forms.ModelForm):
+class EditProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', "email"]
@@ -53,11 +53,11 @@ class UpdateProfileForm(forms.ModelForm):
             attrs={'class':'form-control'}
         )
     )
-    skill = forms.CharField(widget=forms.Textarea(
+    skill = forms.CharField(widget=forms.TextInput(
             attrs={'class':'form-control'}
         )
     )
-    hobbies = forms.CharField(widget=forms.Textarea(
+    hobbies = forms.CharField(widget=forms.TextInput(
             attrs={'class':'form-control'}
         )
     )

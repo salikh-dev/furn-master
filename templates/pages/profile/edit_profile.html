@@ -80,42 +80,42 @@
               <tr>
                 <td>Card Number</td>
                 <td>:</td>
-                <td>{{ user.profile.card_number }}</td>
+                <td>{{ profile_form.card_number }}</td>
               </tr>
               <tr>
                 <td>Bio</td>
                 <td>:</td>
-                <td>{{ user.profile.bio }}</td>
+                <td>{{ profile_form.bio }}</td>
               </tr>
               <tr>
                 <td>Telephone</td>
                 <td>:</td>
-                <td>{{ user.profile.telephone }}</td>
+                <td>{{ profile_form.telephone }}</td>
               </tr>
               <tr>
                 <td>Address</td>
                 <td>:</td>
-                <td>{{ user.profile.address }}</td>
+                <td>{{ profile_form.address }}</td>
               </tr>
 
               <tr>
                 <td>Hobbies</td>
                 <td>:</td>
-                <td>{{ user.profile.hobbies }}</td>
+                <td>{{ profile_form.hobbies }}</td>
               </tr>
 
 
               <tr>
                 <td>Job</td>
                 <td>:</td>
-                <td>{{ user.profile.job }}</td>
+                <td>{{ profile_form.job }}</td>
               </tr>
 
 
               <tr>
                 <td>Skill</td>
                 <td>:</td>
-                <td>{{ user.profile.skill }}</td>
+                <td>{{ profile_form.skill }}</td>
               </tr>
 
 
@@ -129,30 +129,48 @@
         <div class="card-body">
           <i class="fa fa-pen fa-xs edit"></i>
           <div class="social-media">
+           <div>
             <a href="https://fb.com/{{ user.profile.facebook }}" target="_blank" class="fa-stack fa-sm">
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
             </a>
+            {{ profile_form.facebook }}
+           </div>
+          <div>
             <a href="https://t.me/{{ user.profile.telegram }}" target="_blank" class="fa-stack fa-sm">
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
             </a>
-            <a href="https://instagram.com/{{ user.profile.instagram }}" target="_blank" class="fa-stack fa-sm">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-            </a>
-            <a href="https://twitter.com/@{{ user.profile.twitter }}" target="_blank" class="fa-stack fa-sm">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </a>
-            <a href="https://snapchat.com/{{ user.profile.snapchat }}" target="_blank" class="fa-stack fa-sm">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
-            </a>
+            {{ profile_form.telegram }}
+          </div>
+            <div>
+              <a href="https://instagram.com/{{ user.profile.instagram }}" target="_blank" class="fa-stack fa-sm">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </a>
+              {{ profile_form.instagram }}
+            </div>
+            <div>
+              <a href="https://twitter.com/@{{ user.profile.twitter }}" target="_blank" class="fa-stack fa-sm">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </a>
+              {{ profile_form.twitter }}
+            </div>
+            <div>
+              <a href="https://snapchat.com/{{ user.profile.snapchat }}" target="_blank" class="fa-stack fa-sm">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
+              </a>
+              {{ profile_form.snapchat }}
+            </div>
+           <div>
             <a href="https://github.com/{{ user.profile.github }}" target="_blank" class="fa-stack fa-sm">
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="fab fa-github fa-stack-1x fa-inverse"></i>
             </a>
+            {{ profile_form.github }}
+           </div>
           </div>
         </div>
       </div>
