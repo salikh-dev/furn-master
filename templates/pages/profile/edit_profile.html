@@ -41,32 +41,24 @@
   <!-- Sidenav -->
   <form method="post">
     {% csrf_token %}
-    <div class="sidenav">
-      <div class="profile">
-        <img src="{{ user.profile.image.url }}" alt="{{ user.email }}.png" width="100" height="100">
-      </div>
-
-      <div class="sidenav-url">
-
-      </div>
-
-    </div>
-    <!-- End -->
-
-    <!-- Main -->
     <div class="main">
-      <h2>IDENTITY</h2>
+      <h2>EDIT PROFILE</h2>
       <div class="card">
         <div class="card-body">
           <i class="fa fa-pen fa-xs edit"></i>
           <table>
             <tbody>
-
+              <tr>
+                <td>Profile Image</td>
+                <td>:</td>
+                <td>{{ profile_form.image }}</td>
+              </tr>
               <tr>
                 <td>Name</td>
                 <td>:</td>
                 <td>{{ user_form.first_name }}</td>
               </tr>
+
               <tr>
                 <td>Last name</td>
                 <td>:</td>
@@ -129,20 +121,20 @@
         <div class="card-body">
           <i class="fa fa-pen fa-xs edit"></i>
           <div class="social-media">
-           <div>
-            <a href="https://fb.com/{{ user.profile.facebook }}" target="_blank" class="fa-stack fa-sm">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
-            </a>
-            {{ profile_form.facebook }}
-           </div>
-          <div>
-            <a href="https://t.me/{{ user.profile.telegram }}" target="_blank" class="fa-stack fa-sm">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
-            </a>
-            {{ profile_form.telegram }}
-          </div>
+            <div>
+              <a href="https://fb.com/{{ user.profile.facebook }}" target="_blank" class="fa-stack fa-sm">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+              </a>
+              {{ profile_form.facebook }}
+            </div>
+            <div>
+              <a href="https://t.me/{{ user.profile.telegram }}" target="_blank" class="fa-stack fa-sm">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
+              </a>
+              {{ profile_form.telegram }}
+            </div>
             <div>
               <a href="https://instagram.com/{{ user.profile.instagram }}" target="_blank" class="fa-stack fa-sm">
                 <i class="fas fa-circle fa-stack-2x"></i>
@@ -164,13 +156,13 @@
               </a>
               {{ profile_form.snapchat }}
             </div>
-           <div>
-            <a href="https://github.com/{{ user.profile.github }}" target="_blank" class="fa-stack fa-sm">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </a>
-            {{ profile_form.github }}
-           </div>
+            <div>
+              <a href="https://github.com/{{ user.profile.github }}" target="_blank" class="fa-stack fa-sm">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </a>
+              {{ profile_form.github }}
+            </div>
           </div>
         </div>
       </div>
