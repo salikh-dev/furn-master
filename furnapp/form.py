@@ -33,7 +33,7 @@ class EditProfileForm(forms.ModelForm):
         }
 
 
-class UpdateprofileForm(forms.ModelForm):
+class UpdateProfileForm(forms.ModelForm):
     image = forms.CharField(widget=forms.FileInput(
         attrs={'class':'form-control'}
     ))
@@ -41,9 +41,53 @@ class UpdateprofileForm(forms.ModelForm):
             attrs={'class':'form-control'}
         )
     )
+    card_number = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
+    address = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
+    telephone = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
+    skill = forms.CharField(widget=forms.Textarea(
+            attrs={'class':'form-control'}
+        )
+    )
+    hobbies = forms.CharField(widget=forms.Textarea(
+            attrs={'class':'form-control'}
+        )
+    )
+    facebook = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
+    telegram = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
+    instagram = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
+    twitter = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
+    snapchat = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
+    github = forms.CharField(widget=forms.TextInput(
+            attrs={'class':'form-control'}
+        )
+    )
     class Meta:
         model = Profile
-        fields = ['image', 'bio', 'card_number', 'address', 'telephone', 'job', 'skill', 'hobbies', 'facebook', 'telegram', 'instagram', 'twitter', 'snapchat', 'github']
+        fields = ['image', 'bio', 'card_number', 'address', 'telephone', 'telephone', 'skill', 'hobbies', 'facebook', 'telegram', 'instagram', 'twitter', 'snapchat', 'github']
         # fields = '__all__'
 
 

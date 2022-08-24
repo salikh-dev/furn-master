@@ -1,10 +1,9 @@
-from cgi import print_form
-import email
 from multiprocessing import context
 from django.shortcuts import render, reverse, redirect
 from .models import *
 from django.views import generic
 from .form import *
+
 from django.urls import reverse_lazy
 
 def home(request):
@@ -51,23 +50,40 @@ def signup(request):
     
     return render(request, 'registration/signup.html', {"form":form})
 
-class Profileview(generic.TemplateView):
-    template_name = "pages/profile/profile.html"
+# class Profileview(generic.TemplateView):
+#     template_name = "pages/profile/profile.html"
 
-def edit_profile_view(request, pk):
-    if request.method == "POST":
-        form = EditProfileForm(request.POST, instance=request.user)
-        profile_form = UpdateprofileForm(request.POST, request.FILES, instance=request.user)
-        if form.is_valid() and profile_form.is_valid():
-            form.save()
+def profile(request):
+    if request.method == 'POST':
+        user_form == EditProfileForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST,request.FILE, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
             profile_form.save()
-            return reverse("furn:profile")
+            return redirect(to="profile")
     else:
-        form = EditProfileForm(instance=request.user)
-        profile_form = UpdateprofileForm(instance=request.user)
+        user_form = EditProfileForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
     context ={
-        "form":form,
-        "profile_form": profile_form
+        "user_form":user_form,
+        "profile_form":profile_form
+    }
+    return render(request, 'pages/profile/profile.html', context)
+
+def updateProfileView(request, pk):
+    if request.method == 'POST':
+        user_form == EditProfileForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST,request.FILE, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile.save()
+            return redirect(to="profile")
+    else:
+        user_form = EditProfileForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+    context ={
+        "user_form":user_form,
+        "profile_form":profile_form
     }
     return render(request, 'pages/profile/edit_profile.html', context)
 

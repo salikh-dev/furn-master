@@ -2,57 +2,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit profile</title>
-  <link rel="stylesheet" href="{% static 'css/edit.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="https://pattern.kivan-works.com/fonts/kredit.css">
 </head>
 <body>
-  
-  
-  
-  <div class="container form__wrapper"> 
-    
-    <h2>Edit Client Profile</h2>
-    
-    <form id="myForm" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="form-row">
-  
-        <div class="form-group col-md-6">
-  
-          <label for="firstName">First Name</label>
-          {{ form.first_name }}
-        </div><!-- /form-group -->
-  
-        <div class="form-group col-md-6">
-  
-          <label for="lastName">Last Name</label>
-          {{ form.last_name }}
-  
-        </div><!-- /form-group -->
-        
-      </div><!-- /form-row -->
-      
-      <div class="form-group col-md-6">
-        <label for="email">Email address</label>
-        {{ form.email }}
-        {{ profile_form }}
-      </div><!-- /form-group -->
-      <div class="form__btns">
-        <a class="btn btn-outline-primary" href="{% url 'furn:profile' %}">cancel</a>
-    
-        <button type="submit" class="btn btn-primary">Save</button>
-  
-      </div><!-- /form__btns -->
-  
-    </form>
-  
-  </div><!-- /container -->  
-  
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Profile</h1>
+        </div>
 
-  
+        <!-- Navbar -->
+        <ul>
+            <li>
+                <a href="{% url 'furn:home' %}">
+                    <i class="fa fa-home fa-2x" style="background-color: transparent !important;"></i>
+                </a>
+            </li>
+
+            <li>
+                <a  href="{% url 'furn:logout' %}">
+                    <i class="fa fa-sign-out-alt fa-2x" style="background-color: transparent !important;"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src="{{ user.profile_form.image.url }}" alt="" width="100" height="100">
+        </div>
+
+        <div class="sidenav-url">
+            
+        </div>
+        
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Card Number</td>
+                            <td>:</td>
+                            <td>{{ user.profile.card_number }}</td>
+                        </tr>
+                        <tr>
+                          <td>Bio</td>
+                          <td>:</td>
+                          <td>{{ user.profile.bio }}</td>
+                      </tr>
+                        <tr>
+                            <td>Telephone</td>
+                            <td>:</td>
+                            <td>{{ user.profile.telephone }}</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td>{{ user_form.first_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Last name</td>
+                            <td>:</td>
+                            <td>{{ user_form.last_name }}</td>
+                        </tr>
+                       
+
+            
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>{{ user_form.email }}</td>
+                        </tr>
+                       
+                        <tr>
+                            <td>Address</td>
+                            <td>:</td>
+                            <td>{{ user.profile.address }}</td>
+                        </tr>
+                   
+                        <tr>
+                            <td>Hobbies</td>
+                            <td>:</td>
+                            <td>{{ user.profile.hobbies }}</td>
+                        </tr>
+                      
+                      
+                        <tr>
+                            <td>Job</td>
+                            <td>:</td>
+                            <td>{{ user.profile.job }}</td>
+                        </tr>
+                      
+                  
+                        <tr>
+                            <td>Skill</td>
+                            <td>:</td>
+                            <td>{{ user.profile.skill }}</td>
+                        </tr>
+                      
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2>SOCIAL MEDIA</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <div class="social-media">
+                    <a href="https://fb.com/{{ user.profile.facebook }}" target="_blank" class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                    </a>
+                    <a href="https://t.me/{{ user.profile.telegram }}" target="_blank" class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
+                    </a>
+                    <a href="https://instagram.com/{{ user.profile.instagram }}" target="_blank" class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </a>
+                    <a href="https://twitter.com/@{{ user.profile.twitter }}" target="_blank" class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                    </a>
+                    <a href="https://snapchat.com/{{ user.profile.snapchat }}" target="_blank" class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
+                    </a>
+                    <a href="https://github.com/{{ user.profile.github }}" target="_blank" class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <button  type="submit">Save</button>
+    </div>
+    <!-- End -->
 </body>
 </html>
