@@ -8,9 +8,7 @@
     <title>Profile Page</title>
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link rel="stylesheet" href="https://pattern.kivan-works.com/fonts/kredit.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
@@ -19,7 +17,7 @@
         <img src="{{ user.profile.image.url }}" alt="">
         <h3>{{ user.first_name }}</h3>
         <h3>{{ user.email }}</h3>
-        <form style="width: 500px;" method="post" enctype="multipart/form-data">
+        <form  method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ user_form }}
             {{ profile_form }}
@@ -27,180 +25,7 @@
         </form>
     </div>
 
-    <!-- <div class="navbar-top">
-        <div class="title">
-            <h1>Profile</h1>
-        </div>
-
-
-        <ul>
-            <li>
-                <a href="{% url 'furn:home' %}">
-                    <i class="fa fa-home fa-2x" style="background-color: transparent !important;"></i>
-                </a>
-            </li>
-
-            <li>
-                <a  href="{% url 'furn:logout' %}">
-                    <i class="fa fa-sign-out-alt fa-2x" style="background-color: transparent !important;"></i>
-                </a>
-            </li>
-        </ul>
- 
-    </div>
-
-
-    <div class="sidenav">
-        <div class="profile">
-            <img src="{{ user.profile.image.url }}" alt="" width="100" height="100">
-
-            <div class="name">
-                {{ user.first_name }}
-            </div>
-            <div class="job">
-                {{ user.profile.bio }}
-            </div>
-        </div>
-
-        <div class="sidenav-url">
-            <div class="url">
-                <a href="#" class="active">Edit Profile</a>
-                <hr align="center">
-            </div>
-            <div class="url">
-                <a href="#settings">Settings</a>
-                <hr align="center">
-            </div>
-        </div>
-        
-    </div>
-
-
-    <div class="main">
-        <h2>IDENTITY</h2>
-        <div class="card">
-            <div class="card-body">
-                <i class="fa fa-pen fa-xs edit"></i>
-                <table>
-                    <tbody>
-                        {% if user.profile.card_number %}
-                        <tr>
-                            <td>Card Number</td>
-                            <td>:</td>
-                            <td>{{ user.profile.card_number }}</td>
-                        </tr>
-                        {% endif %}
-                        {% if user.profile.telephone %}
-                        <tr>
-                            <td>Telephone</td>
-                            <td>:</td>
-                            <td>{{ user.profile.telephone }}</td>
-                        </tr>
-                        {% endif %}
-                        {% if user.first_name %}
-                        <tr>
-                            <td>Name</td>
-                            <td>:</td>
-                            <td>{{ user.first_name }}</td>
-                        </tr>
-                        {% endif %}
-
-                        {% if user.last_name %}
-                        <tr>
-                            <td>Last name</td>
-                            <td>:</td>
-                            <td>{{ user.last_name }}</td>
-                        </tr>
-                        {% endif %}
-
-                        {% if user.email %}
-                        <tr>
-                            <td>Email</td>
-                            <td>:</td>
-                            <td>{{ user.email }}</td>
-                        </tr>
-                        {% endif %}
-                        {% if user.profile.address %}
-                        <tr>
-                            <td>Address</td>
-                            <td>:</td>
-                            <td>{{ user.profile.address }}</td>
-                        </tr>
-                        {% endif %}
-                        {% if user.profile.hobbies %}
-                        <tr>
-                            <td>Hobbies</td>
-                            <td>:</td>
-                            <td>{{ user.profile.hobbies }}</td>
-                        </tr>
-                        {% endif %}
-                        {% if user.profile.job %}
-                        <tr>
-                            <td>Job</td>
-                            <td>:</td>
-                            <td>{{ user.profile.job }}</td>
-                        </tr>
-                        {% endif %}
-                        {% if user.profile.skill %}
-                        <tr>
-                            <td>Skill</td>
-                            <td>:</td>
-                            <td>{{ user.profile.skill }}</td>
-                        </tr>
-                        {% endif %}
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <h2>SOCIAL MEDIA</h2>
-        <div class="card">
-            <div class="card-body">
-                <i class="fa fa-pen fa-xs edit"></i>
-                <div class="social-media">
-                    {% if user.profile.facebook %}
-                    <a href="https://fb.com/{{ user.profile.facebook }}" target="_blank" class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
-                    </a>
-                    {% endif %}
-                    {% if user.profile.telegram %}
-                    <a href="https://t.me/{{ user.profile.telegram }}" target="_blank" class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
-                    </a>
-                    {% endif %}
-                    
-                    {% if user.profile.instagram %}
-                    <a href="https://instagram.com/{{ user.profile.instagram }}" target="_blank" class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                    </a>
-                    {% endif %}
-                    {% if user.profile.twitter %}
-                    <a href="https://twitter.com/@{{ user.profile.twitter }}" target="_blank" class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                    </a>
-                    {% endif %}
-                    {% if user.profile.snapchat %}
-                    <a href="https://snapchat.com/{{ user.profile.snapchat }}" target="_blank" class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
-                    </a>
-                    {% endif %}
-                    {% if user.profile.github %}
-                    <a href="https://github.com/{{ user.profile.github }}" target="_blank" class="fa-stack fa-sm">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                    </a>
-                    {% endif %}
-                   
-                </div>
-            </div>
-        </div>
-    </div> -->
+   
 
 </body>
 
