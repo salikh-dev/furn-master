@@ -50,46 +50,43 @@ def signup(request):
     
     return render(request, 'registration/signup.html', {"form":form})
 
-# class Profileview(generic.TemplateView):
-#     template_name = "pages/profile/profile.html"
+
 
 def profile(request):
     if request.method == 'POST':
-        user_form == EditProfileForm(request.POST, instance=request.user)
-        profile_form = UpdateProfileForm(request.POST, instance=request.user.profile)
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST,
+                                          request.FILES,
+                                          instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect(to="profile")
+            return redirect("/profile/")
     else:
-        user_form = EditProfileForm(instance=request.user)
+        user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
     context ={
         "user_form":user_form,
         "profile_form":profile_form
     }
-    return render(request, 'pages/profile/profile.html', context)
+    return render(request, 'pages/profile.html', context)
 
-def updateProfileView(request, pk):
-    if request.method == 'POST':
-        user_form == EditProfileForm(request.POST, instance=request.user)
-        profile_form = UpdateProfileForm(request.POST,request.FILE, instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile.save()
-            return redirect(to="profile")
-    else:
-        user_form = EditProfileForm(instance=request.user)
-        profile_form = UpdateProfileForm(instance=request.user.profile)
-    context ={
-        "user_form":user_form,
-        "profile_form":profile_form
-    }
-    return render(request, 'pages/profile/edit_profile.html', context)
+# def profile(request):
+#     if request.method == 'POST':
+#         user_form = UpdateUserForm(request.POST, instance=request.user)
+#         profile_form = UpdateProfileForm(request.POST,
+#                                          request.FILES,
+#                                          instance=request.user.profile)
 
-# class EditProfileView(generic.UpdateView):
-#     form_class = EditProfileForm
-#     template_name = "pages/profile/edit_profile.html"
-#     success_url = reverse_lazy('furn:profile')
-#     def get_object(self):
-#         return self.request.user
+#         if user_form.is_valid() and profile_form.is_valid():
+#             user_form.save()
+#             profile_form.save()
+#             return redirect(to='/profile/')
+#     else:
+#         user_form = UpdateUserForm(instance=request.user)
+#         profile_form = UpdateProfileForm(instance=request.user.profile)
+
+#     return render(request, 'pages/profile.html', {
+#         'user_form': user_form,
+#         'profile_form': profile_form
+#     })

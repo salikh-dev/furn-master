@@ -12,22 +12,14 @@ class Registration(UserCreationForm):
         fields = ["first_name", "last_name", "email", "password1", "password2"]
 
 
-# class EditProfileForm(UserChangeForm):
-#     class Meta:
-#         model = User
-#         fields = ['first_name', 'last_name', "email"]
-#         widgets = {
-#             'first_name':forms.TextInput(attrs={"class": "form-control","placeholder":"First Name", "id":'firstname', "value":"user"}),
-#             'last_name':forms.TextInput(attrs={"class": "form-control", "placeholder":"Last Name", "id":"lastname"}),
-#             'email':forms.EmailInput(attrs={"class":'form-control w-75', "placeholder":"Email", "id":"email"})
-#         }
 
-class EditProfileForm(UserChangeForm):
+
+class UpdateUserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', "email"]
         widgets = {
-            'first_name':forms.TextInput(attrs={"class": "form-control","placeholder":"First Name", "id":'firstname', "value":"user"}),
+            'first_name':forms.TextInput(attrs={"class": "form-control","placeholder":"First Name", "id":'firstname'}),
             'last_name':forms.TextInput(attrs={"class": "form-control", "placeholder":"Last Name", "id":"lastname"}),
             'email':forms.EmailInput(attrs={"class":'form-control w-75', "placeholder":"Email", "id":"email"})
         }
