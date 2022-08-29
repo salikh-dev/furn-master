@@ -1,3 +1,4 @@
+import email
 from multiprocessing import context
 from django.shortcuts import render
 from django.views import generic
@@ -54,12 +55,14 @@ def charts(request):
 def tables(request):
     if 'user' in request.GET:
         search = request.GET['user']
-        full_search = Q(Q(first_name__icontains=search))
+        full_search = Q(Q(first_name__icontains=search) | Q(Q(email__icontains=search)))
+        profile_search = Q(Q(mobile_number__icontains=search))
         user = User.objects.filter(full_search)
+        profile = Profile.objects.filter(profile_search)
     else:
         user = User.objects.all()
     context={
-        "user":user,
+        "user":user
     }
     return render(request, 'dashboard/includes/tables.html', context)
 
