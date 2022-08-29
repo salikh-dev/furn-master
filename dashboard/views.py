@@ -2,16 +2,25 @@ from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth import get_user_model
 from furnapp.models import *
+from django.db.models import Q
 User = get_user_model()
 
 
 
 def home(request):
+    
+    if 'user' in request.GET:
+        search = request.GEt['q']
+        full_search = Q(Q(email__icontains=search))
+        user = User.objects.filter(full_search)
+    else:
+        user = User.objects.all()
     users = User.objects.count()
     products = Product.objects.count()
     blog =  Blog.objects.count()
     arravial = Arrival.objects.count()
     context = {
+        "user":user,
         "users":users,
         "products":products,
         "blogs":blog,
