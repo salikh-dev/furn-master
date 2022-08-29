@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth import get_user_model
@@ -8,19 +9,11 @@ User = get_user_model()
 
 
 def home(request):
-    
-    if 'user' in request.GET:
-        search = request.GEt['q']
-        full_search = Q(Q(email__icontains=search))
-        user = User.objects.filter(full_search)
-    else:
-        user = User.objects.all()
     users = User.objects.count()
     products = Product.objects.count()
     blog =  Blog.objects.count()
     arravial = Arrival.objects.count()
     context = {
-        "user":user,
         "users":users,
         "products":products,
         "blogs":blog,
@@ -59,7 +52,16 @@ def charts(request):
     return render(request, 'dashboard/includes/charts.html')
 
 def tables(request):
-    return render(request, 'dashboard/includes/tables.html')
+    if 'user' in request.GET:
+        search = request.GEt['q']
+        full_search = Q(Q(email__icontains=search))
+        user = User.objects.filter(full_search)
+    else:
+        user = User.objects.all()
+    context={
+        "user":user,
+    }
+    return render(request, 'dashboard/includes/tables.html', context)
 
 def page_404(request):
     return render(request, 'dashboard/includes/404.html')
