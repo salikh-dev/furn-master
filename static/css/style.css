@@ -1,5 +1,3 @@
-
-
 * {
     padding: 0;
     margin: 0;
@@ -27,31 +25,32 @@ body {
 
 
 
-.wrapper-card{
+.wrapper-card {
     display: flex;
     width: 800px;
-   margin: 50px auto;
+    margin: 50px auto;
 }
 
-.product-info{
+.product-info {
     width: 470px;
     margin-left: 15px;
 }
 
-.product-info h1{
+.product-info h1 {
     font-size: 30px;
 }
 
-.product-info #text{
+.product-info #text {
     margin: 10px 0px;
     font-size: 13px;
 }
-.product-info .product-price-btn{
+
+.product-info .product-price-btn {
     display: flex;
     align-items: center;
 }
 
-.product-info .product-price-btn button{
+.product-info .product-price-btn button {
     padding: 10px 20px;
     text-transform: uppercase;
     background: #faa24b;
@@ -61,11 +60,11 @@ body {
     transition: 500ms all;
 }
 
-.product-info .product-price-btn button:hover{
+.product-info .product-price-btn button:hover {
     background: #f07902;
 }
 
-.product-info .product-price-btn #price{
+.product-info .product-price-btn #price {
     font-size: 25px;
     margin-right: 10px;
     color: #000;

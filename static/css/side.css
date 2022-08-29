@@ -1,17 +1,17 @@
-.side-bar{
+.side-bar {
     position: fixed;
     left: -250px;
     transition: 0.2s all;
 }
 
-#menuIcon{
+#menuIcon {
     margin-right: 20px;
     margin-left: 20px;
     font-size: 1.5rem;
     cursor: pointer;
 }
 
-#close{
+#close {
     cursor: pointer;
     position: absolute;
     top: 2px;
@@ -21,6 +21,6 @@
     transition: 500ms all;
 }
 
-#close:hover{
+#close:hover {
     transform: rotate(360deg);
 }
