@@ -20,9 +20,37 @@
         <h3>{{ user.profile.bio }}</h3>
         <span>{{ user.profile.card_number }}</span>
         <form  method="post" enctype="multipart/form-data">
+            {% load widget_tweaks %}
             {% csrf_token %}
-            {{ user_form }}
-            {{ profile_form }}
+          <div class="row">
+            <div class="col-md-6 form-group mt-5">
+                {% render_field user_form.first_name type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field user_form.last_name type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field user_form.email type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.bio type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.card_number type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.address type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.mobile_number type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.card_number type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.image type="file" class="form-control" %}
+            </div>
+          </div>
             <button type="submit">Update</button>
         </form>
     </div>

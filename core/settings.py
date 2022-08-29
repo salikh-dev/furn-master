@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'furnapp',
-    'dashboard'
+    'dashboard',
+
+    "widget_tweaks"
 ]
 
 MIDDLEWARE = [
