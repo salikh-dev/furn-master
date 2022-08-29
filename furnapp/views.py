@@ -16,7 +16,7 @@ def home(request):
 
     if 'q' in request.GET:
         search = request.GET['q']
-        full_search = Q(Q(title__icontains=search))
+        full_search = Q(Q(title__icontains=search) | Q(Q(price__icontains=search)))
         products = Product.objects.filter(full_search)
     else:
         products = Product.objects.all()
