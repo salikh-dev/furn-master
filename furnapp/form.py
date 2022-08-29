@@ -27,5 +27,5 @@ class UpdateUserForm(forms.ModelForm):
 class UpdateProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image', 'bio', 'card_number', 'address', 'mobile_number', 'facebook', 'telegram', 'instagram', 'twitter', 'snapchat', 'github']
+        fields = ['image', 'bio', 'card_number', 'address', 'mobile_number']
         # fields = '__all__'

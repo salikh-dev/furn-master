@@ -22,15 +22,8 @@ class Profile(models.Model):
     card_number = models.IntegerField(default=2500, null=True,blank=True)
     address = models.CharField(max_length=200, null=True, blank=True)
     mobile_number = models.IntegerField(default=998931742328, null=True, blank=True)
-    facebook = models.CharField(max_length=200,  null=True, blank=True)
-    telegram = models.CharField(max_length=200, null=True, blank=True)
-    instagram = models.CharField(max_length=200, null=True, blank=True)
-    twitter = models.CharField(max_length=200,  null=True, blank=True)
-    snapchat = models.CharField(max_length=200, null=True, blank=True)
-    github = models.CharField(max_length=200,  null=True, blank=True)
+    
 
-    def __str__(self):
-        return self.telegram
 
     def save(self, *args, **kwargs):
         super(Profile, self).save(*args, **kwargs)

@@ -53,8 +53,8 @@ def charts(request):
 
 def tables(request):
     if 'user' in request.GET:
-        search = request.GEt['q']
-        full_search = Q(Q(email__icontains=search))
+        search = request.GET['user']
+        full_search = Q(Q(first_name__icontains=search))
         user = User.objects.filter(full_search)
     else:
         user = User.objects.all()
