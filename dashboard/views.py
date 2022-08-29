@@ -1,5 +1,4 @@
-import email
-from multiprocessing import context
+
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth import get_user_model
@@ -62,7 +61,7 @@ def tables(request):
     else:
         user = User.objects.all()
     context={
-        "user":user
+        "user_full":user
     }
     return render(request, 'dashboard/includes/tables.html', context)
 
