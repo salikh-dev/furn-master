@@ -32,8 +32,9 @@ class Profile(models.Model):
     def __str__(self):
         return self.telegram
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
+
         img = Image.open(self.image.path)
 
         if img.height > 300 or img.width > 300:

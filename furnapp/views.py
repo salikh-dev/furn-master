@@ -1,8 +1,9 @@
+from re import search
 from django.shortcuts import render, redirect
 from .models import *
 from django.views import generic
 from .form import *
-
+from django.db.models import Q
 
 def home(request):
     
@@ -12,9 +13,16 @@ def home(request):
     else:
         arrivals = Arrival.objects.filter(category__category_name=category)
 
+
+    if 'q' in request.GET:
+        search = request.GET['q']
+        full_search = Q(Q(title__icontains=search))
+        products = Product.objects.filter(full_search)
+    else:
+        products = Product.objects.all()
+
     base = Carousel.objects.all()
     blog = Blog.objects.all()
-    products = Product.objects.all()
     categires = Category.objects.all()
     context = {
         "base": base, 
@@ -24,6 +32,7 @@ def home(request):
         "categoryes":categires
     }
     return render(request, 'pages/home.html', context)  
+
 
 
 def arrivals_detail(request, pk):
@@ -38,13 +47,12 @@ def arrivals_detail(request, pk):
 # ro`yhatdan o`tish qismi
 
 def signup(request):
-    
     form = Registration()
     if request.method == "POST":
         form = Registration(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/")
+            return redirect('/login/')
     
     return render(request, 'registration/signup.html', {"form":form})
 
