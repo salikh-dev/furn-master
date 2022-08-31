@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth import get_user_model
@@ -22,6 +23,13 @@ def home(request):
         "arravials":arravial
     }
     return render(request, 'dashboard/pages/home.html', context)
+
+def contact_full(request, pk):
+    contacts = Contact.objects.get(id=pk)
+    context ={
+        "contacts":contacts
+    }
+    return render(request, "dashboard/pages/contacts.html", context)
 
 class Buttons(generic.TemplateView):
    template_name ="dashboard/includes/buttons.html"

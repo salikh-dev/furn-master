@@ -212,7 +212,7 @@
                                     Contacts
                                 </h6>
                                {% for contact in contact %}
-                               <a class="dropdown-item d-flex align-items-center" href="#">
+                               <a class="dropdown-item d-flex align-items-center" href="{% url 'dashboard:contact' contact.pk %}">
                                 <div class="mr-3">
                                     <div class="icon-circle bg-primary">
                                         <i class="fas fa-file-alt text-white"></i>
