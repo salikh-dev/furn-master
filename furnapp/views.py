@@ -1,4 +1,4 @@
-from re import search
+
 from django.shortcuts import render, redirect
 from .models import *
 from django.views import generic
@@ -26,7 +26,7 @@ def home(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-        return  redirect('/')
+        return  redirect('furn:succses')
     else:
         form = ContactForm()
     base = Carousel.objects.all()
@@ -85,3 +85,7 @@ def profile(request):
         "profile_form":profile_form
     }
     return render(request, 'pages/profile.html', context)
+
+
+class SuccsesView(generic.TemplateView):
+    template_name = "pages/succses.html"
