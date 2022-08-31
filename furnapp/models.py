@@ -1,7 +1,7 @@
-
 from django.db import models
 from  django.contrib.auth.models import AbstractUser
 from PIL import Image
+from django.utils.timezone import datetime
 
 class MyUser(AbstractUser):
     username = None
@@ -72,7 +72,7 @@ class Product(models.Model):
 class Blog(models.Model):
     img = models.ImageField()
     title = models.CharField(max_length=200)
-    date = models.CharField(max_length=200)
+    date = models.DateField(default=datetime.now)
     aboute = models.TextField(max_length=700)
 
     def __str__(self):
