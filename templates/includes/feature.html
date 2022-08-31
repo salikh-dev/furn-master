@@ -27,7 +27,23 @@
                 </div>
                 {% endfor %}
                 {% if not products %}
-                <h1>NATIJA YO`Q</h1>
+                <div class="col-sm-3 ">
+                    <div class="single-feature">
+                        <img src="{% static 'images/features/none.png' %}" alt="feature image" width="300" >
+                        <div class="single-feature-txt text-center">
+                            <p>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="feature-review">(0 review)</span>
+                            </p>
+                            <h3><a href="#">Mahsulot topilmadi.</a></h3>
+                            <h5>$0</h5>
+                        </div>
+                    </div>
+                </div>
                 {% endif %}
             </div>
         </div>

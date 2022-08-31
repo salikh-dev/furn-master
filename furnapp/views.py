@@ -14,8 +14,8 @@ def home(request):
         arrivals = Arrival.objects.filter(category__category_name=category)
 
 
-    if 'q' in request.GET:
-        search = request.GET['q']
+    if 'product' in request.GET:
+        search = request.GET['product']
         full_search = Q(Q(title__icontains=search) | Q(Q(price__icontains=search)))
         products = Product.objects.filter(full_search)
     else:
