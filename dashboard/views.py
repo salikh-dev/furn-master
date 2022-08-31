@@ -1,19 +1,21 @@
-
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth import get_user_model
 from furnapp.models import *
 from django.db.models import Q
+
 User = get_user_model()
 
 
 
 def home(request):
+    contact = Contact.objects.all().order_by('-id')[:3]
     users = User.objects.count()
     products = Product.objects.count()
     blog =  Blog.objects.count()
     arravial = Arrival.objects.count()
     context = {
+        "contact":contact,
         "users":users,
         "products":products,
         "blogs":blog,
@@ -40,13 +42,13 @@ def other(request):
     return render(request, 'dashboard/includes/other.html')
 
 def dashboard_login(request):
-    return render(request, 'dashboard/registertration/login.html')
+    return render(request, 'dashboard/registrations/login.html')
 
 def forgot_password(request):
     return render(request, 'dashboard/includes/forgot-password.html')
 
 def register(request):
-    return render(request, 'dashboard/registertration/register.html')
+    return render(request, 'dashboard/registrations/register.html')
 
 def charts(request):
     return render(request, 'dashboard/includes/charts.html')
