@@ -21,6 +21,14 @@ def home(request):
     else:
         products = Product.objects.all()
 
+    
+    if request.method  == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return  redirect('/')
+    else:
+        form = ContactForm()
     base = Carousel.objects.all()
     blog = Blog.objects.all()
     categires = Category.objects.all()
@@ -29,7 +37,8 @@ def home(request):
         "arrivals":arrivals, 
         "blog":blog,
         "products":products, 
-        "categoryes":categires
+        "categoryes":categires,
+        "form":form
     }
     return render(request, 'pages/home.html', context)  
 
