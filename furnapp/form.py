@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UsernameField, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth import get_user_model
 from dataclasses import fields
 from .models import *
@@ -29,3 +29,8 @@ class UpdateProfileForm(forms.ModelForm):
         model = Profile
         fields = ['image', 'bio', 'card_number', 'address', 'mobile_number']
         # fields = '__all__'
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['full_name', "email", 'choices', "mobile", "message"]
