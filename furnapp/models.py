@@ -1,5 +1,4 @@
-from importlib.util import set_loader
-from pyexpat import model
+
 from django.db import models
 from  django.contrib.auth.models import AbstractUser
 from PIL import Image
@@ -91,3 +90,15 @@ class Category(models.Model):
     
     def __str__(self):
         return self.category_name
+
+class Contact(models.Model):
+    TAKLIF = "Taklif"
+    SHIKOYAT = "Shikoyat"
+    CONTACT_CHOICES = [
+        (TAKLIF, "Taklif"),
+        (SHIKOYAT, "Shikoyat")
+    ]
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    choices = models.CharField(max_length=8, choices=CONTACT_CHOICES, default=TAKLIF)
+    mobile = models.IntegerField(default='+9989')
