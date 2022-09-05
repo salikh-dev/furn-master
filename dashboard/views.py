@@ -11,7 +11,7 @@ bugun = timezone.now().astimezone()
 
 
 def home(request):
-    contact_last = Contact.objects.filter(date__date=timezone.now() - timezone.timedelta(1)).count() # timezone.now()  bu yerga agar " - timezone.timedelta(1) qo`shilsa bir kun oldingi kelgan xabarlari ko`rsatadi."
+    contact_last = Contact.objects.filter(date__date=timezone.now()).count() # timezone.now()  bu yerga agar " - timezone.timedelta(1) qo`shilsa bir kun oldingi kelgan xabarlari ko`rsatadi."
     contact = Contact.objects.all().order_by('-id')[:contact_last]
     contact_count = Contact.objects.count()
     conatc_taklif = Contact.objects.filter(choices="Taklif").count() #Bu yerdagi (choices="Taklif") furnappdagi models.py Contact TAKLIF = "Taklif" 
