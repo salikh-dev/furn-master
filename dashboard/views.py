@@ -3,14 +3,16 @@ from django.views import generic
 from django.contrib.auth import get_user_model
 from furnapp.models import *
 from django.db.models import Q
-
+from django.utils import timezone
 User = get_user_model()
+
+bugun = timezone.now().astimezone()
 
 
 
 def home(request):
-    contact = Contact.objects.all().order_by('-id')[:5]
-    # contact = Contact.objects.filter()
+    contact_last = Contact.objects.filter(date__range=[bugun - timezone.timedelta(minutes=20), bugun]).count()
+    contact = Contact.objects.all().order_by('-id')[:contact_last]
     contact_count = Contact.objects.count()
     conatc_taklif = Contact.objects.filter(choices="Taklif").count() #Bu yerdagi (choices="Taklif") furnappdagi models.py Contact TAKLIF = "Taklif" 
     contact_shikoyat = Contact.objects.filter(choices="Shikoyat").count()
@@ -20,6 +22,7 @@ def home(request):
     arravial = Arrival.objects.count()
     context = {
         "contact_count":contact_count,
+        "contact_last":contact_last,
         "contact":contact,
         "contact_taklif":conatc_taklif,
         "contact_shikoyat":contact_shikoyat,
