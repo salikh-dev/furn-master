@@ -1,3 +1,5 @@
+
+from audioop import add
 from django.db import models
 from  django.contrib.auth.models import AbstractUser
 from PIL import Image
@@ -103,6 +105,6 @@ class Contact(models.Model):
     choices = models.CharField(max_length=8, choices=CONTACT_CHOICES, default=TAKLIF)
     mobile = models.IntegerField(default=9989)
     message = models.TextField(max_length=700)
-
+    date = models.DateTimeField(auto_now=add)
     def __str__(self):
         return self.choices
