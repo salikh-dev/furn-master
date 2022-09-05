@@ -18,5 +18,5 @@ urlpatterns = [
     path('tables/', tables, name='tables'),
     path('404/', page_404, name='page_404'),
     path('blank/', blank, name='blank'),
-    path('<int:pk>/contact', contact_full, name="contact")
+    path('<int:pk>-contact', contact_full, name="contact")
 ]

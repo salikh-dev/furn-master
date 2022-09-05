@@ -1,4 +1,5 @@
 from multiprocessing import context
+from random import choices
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth import get_user_model
@@ -10,13 +11,19 @@ User = get_user_model()
 
 
 def home(request):
-    contact = Contact.objects.all().order_by('-id')[:3]
+    contact = Contact.objects.all().order_by('-id')[:5]
+    contact_count = Contact.objects.count()
+    conatc_taklif = Contact.objects.filter(choices="Taklif").count() #Bu yerdagi (choices="Taklif") furnappdagi models.py Contact TAKLIF = "Taklif" 
+    contact_shikoyat = Contact.objects.filter(choices="Shikoyat").count()
     users = User.objects.count()
     products = Product.objects.count()
     blog =  Blog.objects.count()
     arravial = Arrival.objects.count()
     context = {
+        "contact_count":contact_count,
         "contact":contact,
+        "contact_taklif":conatc_taklif,
+        "contact_shikoyat":contact_shikoyat,
         "users":users,
         "products":products,
         "blogs":blog,
