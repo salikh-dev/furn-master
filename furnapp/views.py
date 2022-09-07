@@ -88,10 +88,18 @@ def profile(request):
 
 
 def star(request, pk):
-    which_one = Product.objects.get(id=pk)
 
+    form = ProductRateForm()
+    if request.method == "POST":
+        form = ProductRateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+
+    which_one = Product.objects.get(id=pk)
     context={
-        "which_one":which_one
+        "which_one":which_one,
+        "form":form
     }
     return render(request, "pages/star.html", context)
 

@@ -30,6 +30,19 @@ class UpdateProfileForm(forms.ModelForm):
         fields = ['image', 'bio', 'card_number', 'address', 'mobile_number']
         # fields = '__all__'
 
+class ProductRateForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['star_1', "star_2", 'star_3', 'star_4', 'star_5']
+        widgets = {
+            'star_1': forms.TextInput(attrs={"id": 'star5', 'name':'rate', "value":'5', "type":"radio"}),
+            'star_2': forms.TextInput(attrs={"id": 'star4', 'name':'rate', "value":'4', "type":"radio"}),
+            'star_3': forms.TextInput(attrs={"id": 'star3', 'name':'rate', "value":'3', "type":"radio"}),
+            'star_4': forms.TextInput(attrs={"id": 'star2', 'name':'rate', "value":'2', "type":"radio"}),
+            'star_5': forms.TextInput(attrs={"id": 'star1', 'name':'rate', "value":'1', "type":"radio"}),
+        }
+
+
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact

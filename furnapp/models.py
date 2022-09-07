@@ -72,7 +72,7 @@ class Product(models.Model):
     star_2 = models.IntegerField(default=2, null=True, blank=True)
     star_3 = models.IntegerField(default=3, null=True, blank=True)
     star_4 = models.IntegerField(default=4, null=True, blank=True)
-    star_4 = models.IntegerField(default=5, null=True, blank=True)
+    star_5 = models.IntegerField(default=5, null=True, blank=True)
 
     def __str__(self):
         return self.title
