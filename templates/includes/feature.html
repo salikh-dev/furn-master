@@ -12,15 +12,17 @@
                     <div class="single-feature">
                         <img src="{{ y.img.url }}" alt="feature image" width="300" >
                         <div class="single-feature-txt text-center">
-                            <p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
-                                <span class="feature-review">(45 review)</span>
-                            </p>
-                            <h3><a href="{% url 'furn:star' y.id %}">{{ y.title }}</a></h3>
+                            <a href="{% url 'furn:star' y.id %}">
+                                <p>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                    <span class="feature-review">(45 review)</span>
+                                </p>
+                            </a>
+                            <h3>{{ y.title }}</h3>
                             <h5>${{ y.price }}</h5>
                         </div>
                     </div>
