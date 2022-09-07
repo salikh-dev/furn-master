@@ -87,5 +87,13 @@ def profile(request):
     return render(request, 'pages/profile.html', context)
 
 
+def star(request, pk):
+    which_one = Product.objects.get(id=pk)
+
+    context={
+        "which_one":which_one
+    }
+    return render(request, "pages/star.html", context)
+
 class SuccsesView(generic.TemplateView):
     template_name = "pages/succses.html"
